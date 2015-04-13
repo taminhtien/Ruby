@@ -56,3 +56,39 @@ puts 'RubyMonk Is Pretty Brilliant1234'.gsub(/[a-f1-3]/, '0')
 
 # specifies the position in the string to begin the search
 puts 'RubyMonk Is Pretty Brilliant'.match(/ ./, 9)
+
+# Boolean Expressions in Ruby
+name=="Bob"
+age <= 35# change this expression
+age >= 23 && (name == 'Bob' || name == 'Jill')
+# Negating expressions
+!(name == 'Bob')
+
+# The if..else construct
+def check_sign(number)
+  if number == 0
+    number
+  elsif number > 0
+    "#{number} is positive"
+  else
+    "#{number} is negative"
+  end
+end
+
+# unless
+age = 10
+unless age >= 18
+  puts "Sorry, you need to be at least eighteen to drive a car. Grow up fast!"
+end
+
+# The ternary operator
+def check_sign(number)
+  number > 0 ? "#{number} is positive" : "#{number} is negative"
+end
+
+# The objects false and nil equates to false.
+# Every other object like say 1, 0, "" are all evaluated to be true.
+
+if 0
+  puts "Hey, 0 is considered to be a truth in Ruby"
+end
