@@ -111,3 +111,76 @@ def ring(bell, n)
     bell.ring
   end
 end
+
+# Empty arrays
+[1, 2, 3, 4]
+Array.new
+# Looking up data in Arrays
+[1, 2, 3, 4, 5][2] # return 3
+[1, 2, 3, 4, 5, 6, 7][4] # return 5
+
+# Array indexes can also start from the end of the array,
+# rather than the beginning! In Ruby, this is achieved by using negative numbers.
+# This is called reverse index lookup.
+
+[1, 2, 3, 4, 5][-5] # return 1
+[1, 2, 3, 4, 5][-1] # return 5
+
+# Appending the String to an array
+[1, 2, 3, 4, 5] << 'woot'
+[1, 2, 3, 4, 5].append('woot')
+[1, 2, 3, 4, 5].push('woot')
+
+# Map: the method map is used to transform the contents of an array
+# according to a specified set of rules defined inside the code block
+
+[1, 2, 3, 4, 5].map { |i| i + 1 } # [2, 3, 4, 5, 6]
+[1, 2, 3, 4, 5].map { |i| i * 3 } # [3, 6, 9, 12, 15]
+[1, 2, 3, 4, 5].collect { |i| i * 3 } # map is a alias of collect
+
+# Filtering elements of an Array
+# select even numbers
+[1,2,3,4,5,6].select {|number| number % 2 == 0}
+
+# extracting the strings that are longer than five characters.
+names = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+names.select { |i| i.length > 5} # return ["scissors", "lizard"]
+
+# Deleting elements
+[1,3,5,4,6,7].delete 5 # delete element 5
+[1,2,3,4,5,6,7].delete_if{|i| i < 4 }
+[1,2,3,4,5,6,7,8,9].delete_if { |i| i % 2 == 0} # Delete all the even numbers
+
+# Iteration
+# Got `for` loops?
+array = [1, 2, 3, 4, 5]
+for i in array
+  puts i
+end
+
+def array_copy(source)
+  destination = []
+  for i in source
+    if i < 4
+      destination.push(i)
+      # destination.append(i)
+      # destination << i
+    end
+    # destination << i if i < 4
+  end
+  return destination
+end
+
+# looping with `each`
+array = [1, 2, 3, 4, 5]
+array.each do |i|
+  puts i
+end
+
+def array_copy(source)
+  destination = []
+  source.each do |i|
+    destination << i if i < 4
+  end
+  return destination
+end
