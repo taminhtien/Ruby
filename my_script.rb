@@ -92,3 +92,22 @@ end
 if 0
   puts "Hey, 0 is considered to be a truth in Ruby"
 end
+
+# Loops in Ruby
+puts Array.methods
+loop do
+  puts "this line will be executed for an infinite amount of time"
+end
+
+# Break statement
+loop do
+  monk.meditate
+  break if monk.nirvana?
+end
+
+# Run a block of code N times
+def ring(bell, n)
+  n.times do
+    bell.ring
+  end
+end
