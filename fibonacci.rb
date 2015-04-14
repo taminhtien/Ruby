@@ -1,3 +1,4 @@
+=begin
 # Some fibonacci method
 #--------------
 def fib_r(a, b, n)
@@ -38,3 +39,33 @@ def fibo(n)
   end
 end
 fibo(10)
+
+def fibo3(n)
+  a = 0
+  b = 1
+  i = 0
+  while i < n do
+    c = a + b;
+    puts c
+    a = b
+    b = c
+    i = i + 1
+  end
+end
+fibo3(10)
+=end
+
+#--------------
+def fibo3(n)
+  a = 0
+  b = 1
+  i = 0
+  until i >= n do
+    c = a + b;
+    puts c
+    a = b
+    b = c
+    i = i + 1
+  end
+end
+fibo3(10)
