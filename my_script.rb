@@ -126,7 +126,7 @@ Array.new
 [1, 2, 3, 4, 5][-5] # return 1
 [1, 2, 3, 4, 5][-1] # return 5
 
-# Appending the String to an array
+# Appending, growing the String to an array
 [1, 2, 3, 4, 5] << 'woot'
 [1, 2, 3, 4, 5].append('woot')
 [1, 2, 3, 4, 5].push('woot')
@@ -183,4 +183,57 @@ def array_copy(source)
     destination << i if i < 4
   end
   return destination
+end
+
+# find existence of an element in array
+# .include?
+# .index
+# .startWith
+# .endWith
+
+# Ruby Hashes
+# Creating a Hash
+
+student_ages = {
+    "Jack" => 10,
+    "Jill" => 12,
+    "Bob" => 14
+}
+
+restaurant_menu = {
+    "Ramen" => 3,
+    "Dal Makhani" => 4,
+    "Tea" => 2
+}
+# Fetch values from a Hash
+restaurant_menu["Ramen"]
+
+# Modifying a Hash
+restaurant_menu = {}
+# set the values for each item separately here:
+restaurant_menu["Dal Makhani"] = 4.5
+restaurant_menu["Tea"] = 2
+
+# Iterating over a Hash
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.each do | item, price |
+  puts "#{item}: $#{price}"
+end
+
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.each do |item, price|
+  restaurant_menu[item] = price + (price * 0.1)
+end
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.keys
+restaurant_menu.values
+
+# combine arrays to array [a, b, c]
+def artax
+  a = [:punch, 0]
+  b = [:kick, 72]
+  c = [:stops_bullets_with_hands, false]
+  key_value_pairs = [a, b, c] # you can do this. you are a champion.
+  # unlike Artax, who gave up in a swamp.
+  Hash[key_value_pairs]
 end
