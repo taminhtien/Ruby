@@ -1,4 +1,4 @@
-begin
+=begin
 # method = something one object can do for another
 # ex:
 puts 1.next
@@ -86,7 +86,7 @@ end
 def introduction(age, gender, *number_of_names)
   "Meet #{get_name(*number_of_names)}, who's #{age} and #{gender}"
 end
-=end
+#=end
 
 def introduction(age, gender, *names)
   puts names.join(' ').class
@@ -94,3 +94,46 @@ def introduction(age, gender, *names)
 end
 
 puts introduction(28, "Male", "Sidu", "Ponnappa", "Chonira")
+
+def add(a_number, another_number, options = {})
+  sum = a_number + another_number
+  sum = sum.abs if options[:absolute]
+  sum = sum.round(options[:precision]) if options[:round]
+  sum
+end
+
+puts add(1.0134, -5.568)
+puts add(1.0134, -5.568, absolute: true)
+puts add(1.0134, -5.568, absolute: true, round: true, precision: 2)
+
+=end
+
+def calculate(*arguments)
+  options = arguments[-1].is_a?(Hash) ? arguments.pop : {}
+  options[:add] = true if options.empty?
+  return add(*arguments) if options[:add]
+  return subtract(*arguments) if options[:subtract]
+end
+
+def add(*number)
+  sum = number.inject(0) {|sum, x| sum += x}
+end
+
+def subtract(*number)
+  sub = number[0]
+  sum = 0
+  (1..(number.length - 1)).each do |i|
+    sum += number[i]
+  end
+  sub = sub - sum
+end
+
+=begin
+def subtract(*numbers)
+  current_result = numbers.shift
+  numbers.inject(current_result) { |current_result, number| current_result - number }
+end
+=end
+
+puts add(1, 2, 3, 4)
+puts subtract(4, 5)
