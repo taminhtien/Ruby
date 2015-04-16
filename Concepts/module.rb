@@ -94,3 +94,107 @@ end
 our_array = Array.new
 
 p our_array.class # =>> Array
+
+# class Push
+#   def up
+#     40
+#   end
+# end
+require "gym" # up returns 40
+gym_push = Push.new
+p gym_push.up
+
+# class Push
+#   def up
+#     30
+#   end
+# end
+require "dojo" # up returns 30
+dojo_push = Push.new
+p dojo_push.up
+
+# module Gym
+#   class Push
+#     def up
+#       40
+#     end
+#   end
+# end
+require "gym"
+
+# module Dojo
+#   class Push
+#     def up
+#       30
+#     end
+#   end
+# end
+require "dojo"
+
+dojo_push = Dojo::Push.new
+p dojo_push.up
+
+gym_push = Gym::Push.new
+p gym_push.up
+
+# Constant loop up
+
+module Dojo
+  A = 4
+  module Kata
+    B = 8
+    module Roulette
+      class ScopeIn
+        def push
+          15
+        end
+      end
+    end
+  end
+end
+
+A = 16
+B = 23
+C = 42
+
+puts "A - #{A}"
+puts "Dojo::A - #{Dojo::A}"
+
+puts
+
+puts "B - #{B}"
+puts "Dojo::Kata::B - #{Dojo::Kata::B}"
+
+puts
+
+puts "C - #{C}"
+puts "Dojo::Kata::Roulette::ScopeIn.new.push - #{Dojo::Kata::Roulette::ScopeIn.new.push}"
+
+
+module RubyMonk
+  module Parser
+    class TextParser
+      def self.parse(string)
+        string.upcase.split('')
+      end
+    end
+  end
+end
+
+# If you prepend a constant with :: without a parent, the scoping happens
+# on the topmost level.
+                                                                                           module Kata
+  A = 5
+  module Dojo
+    B = 9
+    A = 7
+
+    class ScopeIn
+      def push
+        10
+      end
+    end
+  end
+end
+A = 10
+
