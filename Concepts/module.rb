@@ -68,3 +68,29 @@ end
 
 puts Square.new(2).perimeter
 puts Rectangle.new(2, 10).perimeter
+
+# Modules as Namespaces
+
+module Perimeter
+  class Array
+    def initialize
+      @size = 400
+    end
+  end
+end
+
+our_array = Perimeter::Array.new
+ruby_array = Array.new
+
+p our_array.class # => Perimeter::Array
+p ruby_array.class # => Array
+
+class Array
+  def initialize
+    @size = 400
+  end
+end
+
+our_array = Array.new
+
+p our_array.class # =>> Array
