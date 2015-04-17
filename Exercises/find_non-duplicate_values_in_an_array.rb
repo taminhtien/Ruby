@@ -8,11 +8,9 @@ def non_duplicated_values(values)
   values2
 end
 
-=begin
-def non_duplicated_values(values)
+def non_duplicated_values2(values)
   values.find_all { |x| values.count(x) == 1 }
 end
-=end
 
 values = [1,2,2,3,3,4,5]
 puts non_duplicated_values(values)
