@@ -116,7 +116,7 @@ def calculate(*arguments)
 end
 
 def add(*number)
-  sum = number.inject(0) {|sum, x| sum += x}
+  sum = number.inject(0) {|sum, x| sum + x}
 end
 
 def subtract(*number)
@@ -128,12 +128,12 @@ def subtract(*number)
   sub = sub - sum
 end
 
-=begin
+#=begin
 def subtract(*numbers)
   current_result = numbers.shift
   numbers.inject(current_result) { |current_result, number| current_result - number }
 end
-=end
+#=end
 
 puts add(1, 2, 3, 4)
 puts subtract(4, 5)

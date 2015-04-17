@@ -237,3 +237,11 @@ def artax
   # unlike Artax, who gave up in a swamp.
   Hash[key_value_pairs]
 end
+
+# Classes
+
+# Grouping Objects
+puts 1.class # => Fixnum
+puts "".class # => String
+puts [].class # => Array
+

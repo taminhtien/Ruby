@@ -12,3 +12,4 @@ c = Calculator.new
 puts c.add(1, 2)
 puts c.subtract(1, 2)
 
+puts c.class
